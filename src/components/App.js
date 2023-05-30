@@ -4,7 +4,6 @@ import NavBar from './NavBar';
 import HomePage from './HomePage';
 import About from './About';
 import Sales from './Sales'
-import ProductItems from './ProductItems';
 import ProductsContainer from './ProductsContainer';
 
 function App() {
@@ -18,10 +17,9 @@ function App() {
 
       <Route path="/" element={<HomePage/>}/>
       <Route path="/aboutus" element={<About/>}/>
-      <Route path = "/products" element={<Sales OriginalPrice={OriginalPrice} 
+        <Route path="/productpage" element={<ProductsContainer/>}/>
+        <Route path = "/sales" element={<Sales OriginalPrice={OriginalPrice} 
         DiscountedPrice={DiscountedPrice} />}/>
-        <Route path="/products" element={<ProductsContainer/>}/>
-        <Route path="/productlist/:id" element={<ProductItems/>}/>
 
       </Routes>
 
