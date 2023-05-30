@@ -7,8 +7,8 @@ import Sales from './Sales'
 import ProductsContainer from './ProductsContainer';
 
 function App() {
-  let OriginalPrice = 29.99
-  let DiscountedPrice = 15.99
+  // let OriginalPrice = 29.99
+  // let DiscountedPrice = 15.99
   return (
     <div className="App">
       <NavBar/>
@@ -18,8 +18,7 @@ function App() {
       <Route path="/" element={<HomePage/>}/>
       <Route path="/aboutus" element={<About/>}/>
         <Route path="/productpage" element={<ProductsContainer/>}/>
-        <Route path = "/sales" element={<Sales OriginalPrice={OriginalPrice} 
-        DiscountedPrice={DiscountedPrice} />}/>
+        <Route path = "/sales" element={<Sales/>}/>
 
       </Routes>
 

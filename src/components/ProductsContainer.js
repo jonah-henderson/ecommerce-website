@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react'
+import Sales from './Sales';
 
 function ProductsContainer() {
     const [products, setProducts] = useState([])
     const [filteredProducts, setFilteredProducts] = useState([])
+    // const [originalPrice, setOriginalPrice] = useState("")
 
    useEffect(()=>{
     fetch('http://localhost:3000/products')
@@ -21,25 +23,24 @@ function handleFilter(e){
     setFilteredProducts(filtered)
 }
 
-    // function handleFilter(e){
-    //     e.preventDefault();
-    //     setFilteredProducts(e.target.value)
-    // }
-
-    // const filteredP = products.filter(filteredProduct => filteredProduct.category.toLowerCase().includes(filteredProducts))
+// function handlePrice(e){
+//     setOriginalPrice(e.target.value)
+// }
 
   return (
     <div>
         <h1>ProductsContainer</h1>
         <select  onChange={handleFilter} >
             <option value="Books">Books</option>
-            <option value="Clothes and Shoes">Clothes & Shoes</option>
+            <option value="Clothing">Clothes & Shoes</option>
             </select>
             {filteredProducts.map(product => 
             <div key={product.id}>
-                <h3>{product.category}</h3>
+                <img src={product.image} alt=""></img>
                 <h3>{product.title}</h3>
             </div>)}
+        {filteredProducts.map(product =>  <Sales discountedproduct={product} 
+           originalPrice={product.original_price} key={product.id}/>)}
     </div>
   )
 }

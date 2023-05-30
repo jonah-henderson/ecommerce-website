@@ -1,10 +1,13 @@
 import React from 'react'
 
-function Sales({OriginalPrice, DiscountedPrice}) {
+function Sales({discountedproduct, originalPrice}) {
   return (
     <div>
-        <h3>Original Price: {OriginalPrice} </h3>
-        <h1>Discounted Price: {DiscountedPrice}</h1>
+        {originalPrice ? (
+        <h3>Original Price: {originalPrice}</h3>
+      ) : (
+        <h3>Original Price: N/A</h3>
+      )}
     </div>
   )
 }

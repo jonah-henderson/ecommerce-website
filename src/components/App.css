@@ -43,6 +43,26 @@ body{
   background: linear-gradient(45deg, orange, #ffc107);
 }
 
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: orange;
+  padding: 10px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  margin: 0 10px;
+}
+
+.nav-link:hover {
+  color: #ffc107;
+}
+
+
 .home-page {
   text-align: center;
   margin-top: 50px;
