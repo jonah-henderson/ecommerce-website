@@ -1,0 +1,55 @@
+{
+    "products":[
+        {
+            "id":1,
+            "category": "Books",
+            "title": "Happy Place"
+
+        },
+        {
+            "id":2,
+            "category": "Books",
+            "title": "The Legend of Zelda"
+        },
+        {
+            "id":3,
+            "category": "Books",
+            "title": "The Covenant of Water"
+        },
+        {
+            "id":4,
+            "category": "Books",
+            "title": "The 48 Laws of Power"
+        },
+        {
+            "id":5,
+            "category": "Books",
+            "title": "Fourth Wing"
+        },
+        {
+            "id":6,
+            "category": "Clothing and Shoes",
+            "title": "Crocs Adult Classic Clog"
+        },
+        {
+            "id":7,
+            "category": "Clothing and Shoes",
+            "title": "12 Travel Compression Bags"
+        },
+        {
+            "id":8,
+            "category": "Clothing and Shoes",
+            "title": "Men's Crew T-shirts"
+        },
+        {
+            "id":9,
+            "category": "Clothing and Shoes",
+            "title": "Women's Sundress Long Dress"
+        },
+        {
+            "id":10,
+            "category": "Clothing and Shoes",
+            "title": "Pillow Slippers for Women and Men"
+        }
+    ]
+}
