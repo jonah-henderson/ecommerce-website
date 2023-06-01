@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Sales from './Sales';
 import ProductItems from './ProductItems';
+import ProductDetails from './ProductDetails';
 
 function ProductsContainer() {
     const [products, setProducts] = useState([])
@@ -38,6 +39,7 @@ function getFilteredProducts(){
             {getFilteredProducts().map(product => <ProductItems key={product.id} product={product} />)}
         {getFilteredProducts().map(product =>  <Sales discountedproduct={product} 
            originalPrice={product.original_price} key={product.id}/>)}
+           {products.map(detail => <ProductDetails key={detail.id} detail={detail}/>)}
     </div>
   )
 }
