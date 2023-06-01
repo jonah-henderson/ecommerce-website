@@ -1,31 +1,26 @@
 import React, { useState, useEffect } from 'react'
 import Sales from './Sales';
+import ProductItems from './ProductItems';
 
 function ProductsContainer() {
     const [products, setProducts] = useState([])
-    const [filteredProducts, setFilteredProducts] = useState([])
+    const [category, setCategory] = useState("Books")
     // const [originalPrice, setOriginalPrice] = useState("")
 
    useEffect(()=>{
     fetch('http://localhost:3000/products')
     .then(res => res.json())
-    .then(data => {
-        setProducts(data);
-        setFilteredProducts(data);
-    })
+    .then(data => setProducts(data))
    }, []);
     
 function handleFilter(e){
-    const value = e.target.value;
-    const filtered = products.filter(product => product.category.toLowerCase()
-    .includes(value.toLowerCase())
-    );
-    setFilteredProducts(filtered)
+    setCategory(e.target.value)
 }
 
-// function handlePrice(e){
-//     setOriginalPrice(e.target.value)
-// }
+function getFilteredProducts(){
+    return products.filter(product => product.category.toLowerCase() === category);
+}
+
 
   return (
     <div>
@@ -34,12 +29,14 @@ function handleFilter(e){
             <option value="Books">Books</option>
             <option value="Clothing">Clothes & Shoes</option>
             </select>
-            {filteredProducts.map(product => 
+            {/* {getFilteredProducts().map(product => 
             <div key={product.id}>
                 <img src={product.image} alt=""></img>
                 <h3>{product.title}</h3>
-            </div>)}
-        {filteredProducts.map(product =>  <Sales discountedproduct={product} 
+                <h4>{product.original_price}</h4>
+            </div>)} */}
+            {getFilteredProducts().map(product => <ProductItems key={product.id} product={product} />)}
+        {getFilteredProducts().map(product =>  <Sales discountedproduct={product} 
            originalPrice={product.original_price} key={product.id}/>)}
     </div>
   )

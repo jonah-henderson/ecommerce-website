@@ -5,6 +5,7 @@ import HomePage from './HomePage';
 import About from './About';
 import Sales from './Sales'
 import ProductsContainer from './ProductsContainer';
+import ProductItems from './ProductItems';
 
 function App() {
   // let OriginalPrice = 29.99
@@ -19,6 +20,7 @@ function App() {
       <Route path="/aboutus" element={<About/>}/>
         <Route path="/productpage" element={<ProductsContainer/>}/>
         <Route path = "/sales" element={<Sales/>}/>
+        <Route path = "products" element={<ProductItems/>}/>
 
       </Routes>
 
