@@ -9,8 +9,12 @@ function ProductsContainer() {
     // const [originalPrice, setOriginalPrice] = useState("")
 
    useEffect(()=>{
-    fetch('http://localhost:3000/products')
+    fetch('/products/all') //talking to our server side 
     .then(res => res.json())
+    .then(data => {
+        console.log(data)
+        return data
+    })
     .then(data => setProducts(data))
    }, []);
     
@@ -19,7 +23,9 @@ function handleFilter(e){
 }
 
 function getFilteredProducts(){
-    return products.filter(product => product.category.toLowerCase() === category);
+    console.log(products)
+    console.log(category)
+    return products.filter(product => product.category === category);
 }
 
 
@@ -28,7 +34,7 @@ function getFilteredProducts(){
         <h1>ProductsContainer</h1>
         <select  onChange={handleFilter} >
             <option value="Books">Books</option>
-            <option value="Clothing">Clothes & Shoes</option>
+            <option value="Clothing and Shoes">Clothes & Shoes</option>
             </select>
             {/* {getFilteredProducts().map(product => 
             <div key={product.id}>
@@ -39,7 +45,8 @@ function getFilteredProducts(){
             {getFilteredProducts().map(product => <ProductItems key={product.id} product={product} />)}
         {getFilteredProducts().map(product =>  <Sales discountedproduct={product} 
            originalPrice={product.original_price} key={product.id}/>)}
-           {products.map(detail => <ProductDetails key={detail.id} detail={detail}/>)}
+
+           {/* {products.map(detail => <ProductDetails key={detail.id} detail={detail}/>)} */}
     </div>
   )
 }

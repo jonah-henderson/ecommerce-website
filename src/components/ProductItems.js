@@ -1,12 +1,7 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function ProductItems({ product }) {
-    const navigate = useNavigate();
-
-    const handleClick = ()=>{
-        navigate('/product/$product.id')
-    }
 
 
   return (
@@ -14,7 +9,7 @@ function ProductItems({ product }) {
         <img src={product.image} alt=""></img>
                 <h3>{product.title}</h3>
                 <h4>{product.original_price}</h4>
-                <button onClick={handleClick}>View Details</button>
+                <Link to={`product/${product.id}`}> View details</Link>
     </div>
   )
 }
