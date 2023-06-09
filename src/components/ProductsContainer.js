@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import Sales from './Sales';
 import ProductItems from './ProductItems';
-import ProductDetails from './ProductDetails';
+
+import './ProductsContainer.css';
 
 function ProductsContainer() {
     const [products, setProducts] = useState([])
     const [category, setCategory] = useState("Books")
-    // const [originalPrice, setOriginalPrice] = useState("")
 
    useEffect(()=>{
     fetch('/products/all') //talking to our server side 
@@ -23,30 +22,22 @@ function handleFilter(e){
 }
 
 function getFilteredProducts(){
-    console.log(products)
-    console.log(category)
     return products.filter(product => product.category === category);
 }
 
-
   return (
-    <div>
-        <h1>ProductsContainer</h1>
-        <select  onChange={handleFilter} >
-            <option value="Books">Books</option>
-            <option value="Clothing and Shoes">Clothes & Shoes</option>
+    <div className="products-container">
+        <header>
+            <h1>Find products</h1>
+            <label>Category: </label>
+            <select onChange={handleFilter} >
+                <option value="Books">Books</option>
+                <option value="Clothing and Shoes">Clothes & Shoes</option>
             </select>
-            {/* {getFilteredProducts().map(product => 
-            <div key={product.id}>
-                <img src={product.image} alt=""></img>
-                <h3>{product.title}</h3>
-                <h4>{product.original_price}</h4>
-            </div>)} */}
+        </header>
+        <div className="product-list">
             {getFilteredProducts().map(product => <ProductItems key={product.id} product={product} />)}
-        {getFilteredProducts().map(product =>  <Sales discountedproduct={product} 
-           originalPrice={product.original_price} key={product.id}/>)}
-
-           {/* {products.map(detail => <ProductDetails key={detail.id} detail={detail}/>)} */}
+        </div>
     </div>
   )
 }

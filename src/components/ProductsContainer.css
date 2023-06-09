@@ -1,0 +1,26 @@
+.product-list {
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    column-gap: 16px;
+    row-gap: 32px;
+    margin: auto;
+    max-width: 80%;
+    justify-content: space-between;
+}
+
+.product-list::after {
+    content: "";
+    flex: auto;
+}
+
+.products-container header {
+    text-align: left;
+    margin-bottom: 32px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+    padding-bottom: 16px;
+}
+
+.products-container header h1 {
+    text-align: left;
+}
